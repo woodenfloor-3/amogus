@@ -66,15 +66,15 @@
 
 
     <!-- Show Category Information -->
-    <div class="container my-3">
-      <div class="jumbotron">
-        <h1 class="display-4">Welcome to <?php echo $catname; ?> Forum</h1>
-        <p class="lead"><?php echo $catdesc; ?></p>
+    <div class="container my-2">
+      <div class="jumbotron bg-dark">
+        <h1 class="display-5 text-white">Welcome to <?php echo $catname; ?> Forum</h1>
+        <p class="lead text-white"><?php echo $catdesc; ?></p>
         <hr class="my-4">
-        <p>This is peer to peer discussion forum to share knowledge with each other. Forum Rules : 
-            1. No Spam / Advertising / Self-promote in the forums. 2. Do not post copyright-infringing material. 3.Do not post “offensive” posts, links or images. 4. Do not cross post questions. 5. Do not PM users asking for help. 5. Remain respectful of other members at all times.
+        <p style="color:white;">This is peer to peer discussion forum to share knowledge with each other. Forum Rules : 
+          <br>1. No Spam / Advertising / Self-promote in the forums. <br>2. Do not post copyright-infringing material. <br>3.Do not post “offensive” posts, links or images. <br>4. Do not cross post questions. <br>5. Do not PM users asking for help. <br>6. Remain respectful of other members at all times.
         </p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Browse Topic</a>
+       
       </div>
     </div>
 

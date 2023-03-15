@@ -66,14 +66,12 @@
 
 
     <div class="container my-3">
-      <div class="jumbotron">
-        <h1 class="display-4"><?php echo $title; ?></h1>
-        <p class="lead"><?php echo $desc; ?></p>
+      <div class="jumbotron bg-dark">
+        <h1 class="display-4 text-white"><?php echo $title; ?></h1>
+        <p class="lead text-white"><?php echo $desc; ?></p>
         <hr class="my-4">
-        <p>This is peer to peer discussion forum to share knowledge with each other. Forum Rules : 
-            1. No Spam / Advertising / Self-promote in the forums. 2. Do not post copyright-infringing material. 3.Do not post “offensive” posts, links or images. 4. Do not cross post questions. 5. Do not PM users asking for help. 5. Remain respectful of other members at all times.
-        </p>
-        <p><em> Posted by <?php echo $posted_by; ?> </em></p>
+
+        <p style="color:white;"><em> Posted by <?php echo $posted_by; ?> </em></p>
       </div>
     </div>
 
