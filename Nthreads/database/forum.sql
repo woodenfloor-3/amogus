@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2022 at 07:30 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Mar 15, 2023 at 02:03 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,16 +32,17 @@ CREATE TABLE `categories` (
   `category_name` varchar(255) NOT NULL,
   `category_description` varchar(255) NOT NULL,
   `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`category_id`, `category_name`, `category_description`, `created`) VALUES
-(1, 'Python', 'Python is a high-level, interpreted, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation. Python is dynamically-typed and garbage-collected.', '2022-05-25 08:52:14'),
-(2, 'JavaScript', 'JavaScript, often abbreviated JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS. Over 97% of websites use JavaScript on the client side for web page behavior, often incorporating third-party l', '2022-05-25 08:54:22'),
-(3, 'C++', 'C++ is a general-purpose programming language created by Danish computer scientist Bjarne Stroustrup as an extension of the C programming language, or \"C with Classes.', '2022-05-27 07:18:17');
+(1, 'MCA', 'MCA FORUM', '2022-05-25 08:52:14'),
+(2, 'MMS', 'MMS FORUM', '2022-05-25 08:54:22'),
+(3, 'NIL TEACHING SESSION', 'THIS IS WHERE NILADRI SAHA TEACHES THE STUDENTS', '2023-03-15 13:09:12'),
+(4, 'ARIF TEACHING ', 'TEACHER', '2023-03-15 13:10:13');
 
 -- --------------------------------------------------------
 
@@ -55,7 +56,7 @@ CREATE TABLE `comments` (
   `thread_id` int(8) NOT NULL,
   `comment_time` datetime NOT NULL,
   `comment_by` int(8) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `comments`
@@ -82,7 +83,7 @@ CREATE TABLE `threads` (
   `thread_cat_id` int(7) NOT NULL,
   `thread_user_id` int(7) NOT NULL,
   `timestamp` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `threads`
@@ -96,7 +97,8 @@ INSERT INTO `threads` (`thread_id`, `thread_title`, `thread_desc`, `thread_cat_i
 (104, 'What is jQuery?', 'is jQuery a library or a framework', 2, 44, '2022-06-19 15:09:49'),
 (105, 'testing', 'description', 2, 44, '2022-06-19 17:35:01'),
 (106, 'javascript vs typescript ???', 'bs itna h bta do jitna puchha', 2, 44, '2022-06-20 10:21:42'),
-(107, 'this is testing &lt;script&gt;', '&lt;script&gt; alert(Hello); &lt;/script&gt;', 1, 47, '2022-06-20 11:25:34');
+(107, 'this is testing &lt;script&gt;', '&lt;script&gt; alert(Hello); &lt;/script&gt;', 1, 47, '2022-06-20 11:25:34'),
+(108, 'Hello Help me', 'No', 1, 41, '2023-03-15 16:34:47');
 
 -- --------------------------------------------------------
 
@@ -109,7 +111,7 @@ CREATE TABLE `users` (
   `user_email` varchar(20) NOT NULL,
   `user_password` varchar(20) NOT NULL,
   `timestamp` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -171,7 +173,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `category_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -183,7 +185,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `threads`
 --
 ALTER TABLE `threads`
-  MODIFY `thread_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `thread_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `users`
