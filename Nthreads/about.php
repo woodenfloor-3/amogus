@@ -18,7 +18,7 @@
     <div class="container my-3">
       <div class="jumbotron">
         <h1 class="display-4">Welcome to iDiscuss Forum</h1>
-        <p class="lead"><b> &#169; Neeraj Barshan <br> nbarshan2000@gmail.com <br> +91 78760 06875 </b></p>
+        <p class="lead"><b> &#169; Amogus <br> Amogus@gmail.com <br>  </b></p>
         <hr class="my-4">
         <p>This is peer to peer discussion forum to share knowledge with each other. Forum Rules : 
             <ul style="list-style: none;"><li> No Spam / Advertising / Self-promote in the forums. </li>
