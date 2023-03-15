@@ -78,16 +78,15 @@
 
     <!-- Start Slider -->
 
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
+<div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://picsum.photos/900/300" class="d-block w-100" alt="...">
+                <img src="https://merriam-webster.com/assets/mw/images/article/art-wap-article-main/line%20drawings%20of%20among%20us%20avatars-8960-0809a5c86f7bb8d9d26b286efdf85d54@1x.jpg" height=900 width=300 class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://picsum.photos/900/300" class="d-block w-100" alt="...">
+                <img src="https://wallpaperaccess.com/full/4707938.jpg" height=900 width=300 class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://picsum.photos/900/300" class="d-block w-100" alt="...">
+                <img src="https://i.pinimg.com/736x/e2/63/12/e26312c1d18e326cbea101ad62c03a0f.jpg" height=900 width=300 class="d-block w-100" alt="...">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
