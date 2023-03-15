@@ -18,7 +18,7 @@
     <div class="container my-3">
       <div class="jumbotron">
         <h1 class="display-4">Welcome to NeatThreads Forum</h1>
-        <p class="lead"><b> &#169;amogus <br> amogus@gmail.com <br>  </b></p>
+        <p class="lead"><b> &#169; This is made solely by Niladri saha </p>
         <hr class="my-4">
         <p>This is peer to peer discussion forum to share knowledge with each other. Forum Rules : 
             <ul style="list-style: none;"><li> No Spam / Advertising / Self-promote in the forums. </li>
