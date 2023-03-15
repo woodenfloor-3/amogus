@@ -7,16 +7,26 @@
 
     <!-- Bootstrap CSS -->
     <style>
+       body {
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+      } 
+
+      
 .card {
   background-color: #f5f5f5;
   border: 2px solid #e6e6e6;
   border-radius: 10px;
-  padding: 20px;
-  margin: 30px;
+  padding: 10px;
+  margin: 50px;
   width: 300px;
   height: 450px;
   transition: box-shadow 0.3s ease-in-out;
 }
+.carousel-item img {
+        height: 400px;
+        object-fit: cover;
+      }
 
 .card:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -43,6 +53,20 @@
   object-fit: cover;
   border-radius: 50%;
 }
+.card-category .btn {
+        background-color: #000000;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 10px 20px;
+        margin-top: 10px;
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      .card-category .btn:hover {
+        background-color: #5c5b5b;
+      }
   </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
