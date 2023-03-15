@@ -17,7 +17,7 @@
     <center>
     <div class="container my-3">
       <div class="jumbotron">
-        <h1 class="display-4">Welcome to iDiscuss Forum</h1>
+        <h1 class="display-4">Welcome to NeatThreads Forum</h1>
         <p class="lead"><b> &#169; Amogus <br> Amogus@gmail.com <br>  </b></p>
         <hr class="my-4">
         <p>This is peer to peer discussion forum to share knowledge with each other. Forum Rules : 
