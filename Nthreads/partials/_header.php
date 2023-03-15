@@ -1,3 +1,65 @@
+<style>
+/* Navbar */
+.navbar {
+  background-color: #000;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.navbar-toggler-icon {
+  color: #fff;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+}
+
+.dropdown-menu {
+  background-color: #000;
+  border: none;
+}
+
+.dropdown-item {
+  color: #fff;
+}
+
+.form-control {
+  background-color: #000;
+  border: none;
+  border-bottom: 2px solid #fff;
+  border-radius: 0;
+  color: #fff;
+}
+
+.btn-outline-success {
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn-outline-success:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.text-light {
+  font-size: 1.2rem;
+}
+
+.btn-primary {
+  background-color: #000;
+  border: none;
+  border-radius: 0;
+  margin-left: 1rem;
+}
+
+.btn-primary:hover {
+  background-color: #fff;
+  color: #000;
+}
+</style>
 <?php
 session_start();
 
@@ -5,7 +67,7 @@ session_start();
 // include "partials/exp_signupModal.php";
 include "./signupModal.php";
 include "./loginModal.php";
-echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 <a class="navbar-brand" href="index.php">NeatThreads</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
@@ -41,7 +103,7 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   <p class="text-light my-0 mx-2"> Welcome ' . $_SESSION['userEmail'] . '</p>
-  <a href="logout.php" class="btn btn-outline-primary mx-2">Logout</a>
+  <a href="logout.php" class="btn btn-primary mx-2">Logout</a>
   </form>';
   }
 else{
@@ -50,8 +112,8 @@ else{
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
   <div class="mx-2">
-  <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#loginModal">Login</button>
-  <button class="btn btn-outline-primary" data-toggle="modal" data-target="#signupModal">SignUp</button>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
+  <button class="btn btn-primary" data-toggle="modal" data-target="#signupModal">SignUp</button>
   </div>';
 }
 
