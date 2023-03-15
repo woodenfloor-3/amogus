@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>NeatThreads</title>
+    <title>NeatThreads - Forum</title>
   </head>
   <body>
     <?php include "partials/_connect.php"; ?>
@@ -18,7 +18,7 @@
     <div class="container my-3">
       <div class="jumbotron">
         <h1 class="display-4">Welcome to NeatThreads Forum</h1>
-        <p class="lead"><b> &#169; Amogus <br> Amogus@gmail.com <br>  </b></p>
+        <p class="lead"><b> &#169;amogus <br> amogus@gmail.com <br>  </b></p>
         <hr class="my-4">
         <p>This is peer to peer discussion forum to share knowledge with each other. Forum Rules : 
             <ul style="list-style: none;"><li> No Spam / Advertising / Self-promote in the forums. </li>

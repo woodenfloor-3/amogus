@@ -8,25 +8,24 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>iDiscuss - Forum</title>
+    <title>NeatThreads</title>
   </head>
   <body>
     <?php include "partials/_connect.php"; ?>
     <?php include "partials/_header.php"; ?>
 
     <!-- Start Slider -->
-    <!--EDITTEST--->
 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://picsum.photos/900/300" class="d-block w-100" alt="...">
+                <img src="https://merriam-webster.com/assets/mw/images/article/art-wap-article-main/line%20drawings%20of%20among%20us%20avatars-8960-0809a5c86f7bb8d9d26b286efdf85d54@1x.jpg" height=900 width=300 class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://picsum.photos/900/300" class="d-block w-100" alt="...">
+                <img src="https://wallpaperaccess.com/full/4707938.jpg" height=900 width=300 class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://picsum.photos/900/300" class="d-block w-100" alt="...">
+                <img src="https://i.pinimg.com/736x/e2/63/12/e26312c1d18e326cbea101ad62c03a0f.jpg" height=900 width=300 class="d-block w-100" alt="...">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -42,7 +41,7 @@
     <!-- End Slider -->
 
     <div class="container my-3">
-      <h2 class="text-center">iDiscuss - Browse Categories</h2>
+      <h2 class="text-center">NeatThreads - Browse Categories</h2>
       <div class="row">
 
       <!-- // fetch of the Categories -->

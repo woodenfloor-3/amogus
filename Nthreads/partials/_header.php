@@ -6,7 +6,7 @@ session_start();
 include "./signupModal.php";
 include "./loginModal.php";
 echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<a class="navbar-brand" href="index.php">iDiscuss</a>
+<a class="navbar-brand" href="index.php">NeatThreads</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -41,7 +41,7 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   <p class="text-light my-0 mx-2"> Welcome ' . $_SESSION['userEmail'] . '</p>
-  <a href="logout.php" class="btn btn-primary mx-2">Logout</a>
+  <a href="logout.php" class="btn btn-outline-primary mx-2">Logout</a>
   </form>';
   }
 else{
@@ -50,8 +50,8 @@ else{
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
   <div class="mx-2">
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
-  <button class="btn btn-primary" data-toggle="modal" data-target="#signupModal">SignUp</button>
+  <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#loginModal">Login</button>
+  <button class="btn btn-outline-primary" data-toggle="modal" data-target="#signupModal">SignUp</button>
   </div>';
 }
 
