@@ -14,30 +14,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_POST['addThread']) && !isset
     while($row = mysqli_fetch_assoc($result)){
       $nohashPass = $row['user_password'];
       if($nohashPass == $loginPass){
-      // if( password_verify($loginPass, $row['user_password'])){
         $login = true;
         session_start();
         $_SESSION['loggedin'] = true;
         $_SESSION['srn'] = $row['srn'];
         $_SESSION['userEmail'] = $loginUsername;
 
-        header("location: index.php?loginsuccess=true");
-        // echo "Logged In Successfully   ---   Welcome " . $loginEmail;
+        header('Location: index.php');
         exit();
-        }
-        else{
-          $showError = true;
-          echo "Login Failed 1";
-          // header("location: index.php");
-          header("location: index.php?loginfailed=true");
-        }
-      }  
+      }
+      else{
+        $showError = true;
+        header("location: index.php?loginfailed=true");
+      }
     }
-    else{
-      $showError = true;
-      echo "Login Failed 2";
-      // header("location: index.php");
-      header("location: index.php?loginfailed=true");
-    }
+  }
+  else{
+    $showError = true;
+    header("location: index.php?loginfailed=true");
+  }
 }
 ?>
