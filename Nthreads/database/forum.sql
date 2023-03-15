@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2023 at 02:03 PM
+-- Generation Time: Mar 15, 2023 at 04:06 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -98,7 +98,8 @@ INSERT INTO `threads` (`thread_id`, `thread_title`, `thread_desc`, `thread_cat_i
 (105, 'testing', 'description', 2, 44, '2022-06-19 17:35:01'),
 (106, 'javascript vs typescript ???', 'bs itna h bta do jitna puchha', 2, 44, '2022-06-20 10:21:42'),
 (107, 'this is testing &lt;script&gt;', '&lt;script&gt; alert(Hello); &lt;/script&gt;', 1, 47, '2022-06-20 11:25:34'),
-(108, 'Hello Help me', 'No', 1, 41, '2023-03-15 16:34:47');
+(108, 'Hello Help me', 'No', 1, 41, '2023-03-15 16:34:47'),
+(109, 'Who do you think would win in a battle Jotaro vs Superman', 'A life', 4, 41, '2023-03-15 19:33:50');
 
 -- --------------------------------------------------------
 
@@ -185,7 +186,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `threads`
 --
 ALTER TABLE `threads`
-  MODIFY `thread_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `thread_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT for table `users`
