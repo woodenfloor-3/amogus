@@ -18,12 +18,11 @@
     <div class="container my-3">
       <div class="jumbotron">
         <h1 class="display-4">Welcome to NeatThreads Forum</h1>
-        <p class="lead"><b> &#169; This is made solely by Niladri saha </p>
+        <p class="lead"><b> &#169; Made as a join effort spearheaded by Niladri Saha.</p>
         <hr class="my-4">
         <p>This is peer to peer discussion forum to share knowledge with each other. Forum Rules : 
             <ul style="list-style: none;"><li> No Spam / Advertising / Self-promote in the forums. </li>
-            <li> Do not post copyright-infringing material. </li>
-            <li> Do not post “offensive” posts, links or images. </li>
+            <li> Do not post copyright-infringing material. </li> 
             <li> Do not cross post questions. </li>
             <li> Do not PM users asking for help. </li>
             <li> Remain respectful of other members at all times. </li></ul>
