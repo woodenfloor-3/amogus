@@ -1,4 +1,4 @@
-NeatThreads - A PHP-Based Forum
+**NeatThreads - A PHP-Based Forum**
 NeatThreads is a full PHP-based forum application that allows users to create and manage discussion threads, reply to other users' posts, and interact with other members of the community. It features a responsive and user-friendly interface, making it easy to use on both desktop and mobile devices.
 
 Installation
