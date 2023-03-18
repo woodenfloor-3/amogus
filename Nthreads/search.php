@@ -21,12 +21,21 @@
     <div class="searchResult container my-3">
         <h1 class="py-2">Search Result for <em> " <?php echo $_GET["search"]; ?> " </em> </h1>
 
-    <?php
-        $noResults = true;
-        $query = $_GET['search'];
-        $sql = "SELECT * FROM `threads` WHERE MATCH (thread_title, thread_desc) AGAINST ('$query')";
-        $result = mysqli_query($conn, $sql);
-        while($row = mysqli_fetch_assoc($result)){
+        <?php
+    $noResults = true;
+    $query = $_GET['search'];
+    $category_id = isset($_GET['category_id']) ? $_GET['category_id'] : '';
+    $where_clause = '';
+
+    // If a category ID is selected, add a WHERE clause to the query
+    if (!empty($category_id)) {
+      $where_clause = "WHERE thread_cat_id = $category_id AND";
+    }
+
+    $sql = "SELECT * FROM `threads` $where_clause MATCH (thread_title, thread_desc) AGAINST ('$query')";
+    $result = mysqli_query($conn, $sql);
+
+    while($row = mysqli_fetch_assoc($result)){
         $title = $row['thread_title'];
         $desc = $row['thread_desc'];
         $thread_id = $row['thread_id'];
@@ -37,9 +46,9 @@
         <h3 class="py-2"><a href="'.$url.'" class="text-dark">'.$title.'</a></h3>
         <p>'.$desc.'</p>     
         </div>';
-      }
+    }
 
-      if($noResults){
+    if($noResults){
         echo '<div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-4">No Results Found</h1>
@@ -51,8 +60,9 @@
           </p>
         </div>
       </div>';
-      }
-    ?>
+    }
+?>
+        
     </div>
 
 
