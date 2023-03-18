@@ -1,65 +1,90 @@
 <style>
-/* Navbar */
-.navbar {
-  background-color: #000;
-}
+  /* Navbar */
+  .navbar {
+    background-color: #000;
+  }
 
-.navbar-brand {
-  font-weight: bold;
-  font-size: 2rem;
-}
+  .navbar-brand {
+    font-weight: bold;
+    font-size: 2rem;
+  }
 
-.navbar-toggler-icon {
-  color: #fff;
-}
+  .navbar-toggler-icon {
+    color: #fff;
+  }
 
-.nav-link {
-  font-size: 1.2rem;
-}
+  .nav-link {
+    font-size: 1.2rem;
+  }
 
-.dropdown-menu {
+  .dropdown-menu {
+    background-color: #000;
+    border: none;
+  }
+
+  .dropdown-item {
+    color: #fff;
+  }
+
+  .form-control {
+    background-color: #000;
+    border: none;
+    border-bottom: 2px solid #fff;
+    border-radius: 0;
+    color: #fff;
+  }
+
+  .btn-outline-success {
+    color: #fff;
+    border-color: #fff;
+  }
+
+  .btn-outline-success:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
+  .text-light {
+    font-size: 1.2rem;
+  }
+
+  .btn-primary {
+    background-color: #000;
+    border: none;
+    border-radius: 0;
+    margin-left: 1rem;
+  }
+
+  .btn-primary:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
+  /* Select Element */
+  select {
   background-color: #000;
   border: none;
-}
-
-.dropdown-item {
-  color: #fff;
-}
-
-.form-control {
-  background-color: #000;
-  border: none;
-  border-bottom: 2px solid #fff;
   border-radius: 0;
   color: #fff;
+  padding: 0.5rem;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
-.btn-outline-success {
-  color: #fff;
+select:focus {
   border-color: #fff;
+  outline: none;
+  box-shadow: none;
 }
 
-.btn-outline-success:hover {
-  background-color: #fff;
-  color: #000;
-}
-
-.text-light {
-  font-size: 1.2rem;
-}
-
-.btn-primary {
+select option {
   background-color: #000;
-  border: none;
-  border-radius: 0;
-  margin-left: 1rem;
+  color: #fff;
 }
 
-.btn-primary:hover {
-  background-color: #fff;
-  color: #000;
-}
 </style>
+
 <?php
 session_start();
 
@@ -87,7 +112,7 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">';
 
-        $sql = "SELECT category_name, category_id FROM categories LIMIT 5";
+        $sql = "SELECT category_name, category_id FROM categories LIMIT 4";
         $result = mysqli_query($conn, $sql);
         while($row = mysqli_fetch_assoc($result)){
           echo '<a class="dropdown-item" href="threadlist.php?catid='.$row["category_id"].'">' . $row["category_name"] . '</a>';
@@ -99,12 +124,22 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="row max-2">';
 
   if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
-  echo '<form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
-  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  <p class="text-light my-0 mx-2"> Welcome ' . $_SESSION['userEmail'] . '</p>
-  <a href="logout.php" class="btn btn-primary mx-2">Logout</a>
-  </form>';
+    echo '<form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
+    <select name="category_id">
+    <option value="">All Categories</option>';
+    // Retrieve the list of categories from the database
+    $sql = "SELECT category_name, category_id FROM categories LIMIT 4";
+    
+    $result = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+      echo '<option value="'.$row["category_id"].'">'.$row["category_name"].'</option>';
+    }
+    echo '</select>
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <p class="text-light my-0 mx-2"> Welcome ' . $_SESSION['userEmail'] . '</p>
+    <a href="logout.php" class="btn btn-primary mx-2">Logout</a>
+    </form>';
   }
 else{
   echo '<form class="form-inline my-2 my-lg-0">
@@ -135,7 +170,7 @@ if(isset($_GET['signupsuccess']) && $_GET['signupsuccess'] == false){
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
-    </div>';
+    </div>';  
     exit();
 }
 
