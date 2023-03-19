@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2023 at 04:06 PM
+-- Generation Time: Mar 19, 2023 at 09:27 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -111,31 +111,33 @@ CREATE TABLE `users` (
   `srn` int(8) NOT NULL,
   `user_email` varchar(20) NOT NULL,
   `user_password` varchar(20) NOT NULL,
-  `timestamp` datetime NOT NULL
+  `timestamp` datetime NOT NULL,
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`srn`, `user_email`, `user_password`, `timestamp`) VALUES
-(28, 'nbarshan2000@gmail.c', '$2y$10$aC95z1qOZ65re', '2022-06-03 07:50:05'),
-(29, 'abc@aa.in', '$2y$10$I6nAR8AdCWb.H', '2022-06-03 08:01:41'),
-(30, 'rohan@asl.ljk', '$2y$10$cx0HDJPh.0ma3', '2022-06-03 08:07:22'),
-(31, 'exp@api.in', '$2y$10$Xp90Fndnxg2k8', '2022-06-03 11:23:10'),
-(32, 'abc@gmail.com', '$2y$10$DRi0UCFQdnsyl', '2022-06-03 12:04:55'),
-(33, 'am@gmail.com', '$2y$10$Zj6Sliz359/Ub', '2022-06-03 12:32:20'),
-(34, 'hello@world.in', '123', '2022-06-03 12:41:36'),
-(35, 'good@morning.in', 'jj', '2022-06-04 07:49:09'),
-(38, 'neeraj@mail.in', '111', '2022-06-06 12:25:38'),
-(40, 'good@night.in', '111', '2022-06-06 22:58:37'),
-(41, 'rahul@com.com', '1234', '2022-06-06 23:18:49'),
-(42, 'hello@mail.in', '111', '2022-06-11 22:57:18'),
-(43, 'demo@abc.in', '111', '2022-06-12 15:16:48'),
-(44, 'abc1234@gmail.com', '1234', '2022-06-18 10:53:01'),
-(45, 'neeraj@abc.in', '111', '2022-06-19 10:16:28'),
-(46, 'JAIRAMCM@GMAIL.COM', 'JAIRAM123', '2022-06-20 10:17:32'),
-(47, 'neeraj', '111', '2022-06-20 10:34:11');
+INSERT INTO `users` (`srn`, `user_email`, `user_password`, `timestamp`, `is_admin`) VALUES
+(28, 'nbarshan2000@gmail.c', '$2y$10$aC95z1qOZ65re', '2022-06-03 07:50:05', 0),
+(29, 'abc@aa.in', '$2y$10$I6nAR8AdCWb.H', '2022-06-03 08:01:41', 0),
+(30, 'rohan@asl.ljk', '$2y$10$cx0HDJPh.0ma3', '2022-06-03 08:07:22', 0),
+(31, 'exp@api.in', '$2y$10$Xp90Fndnxg2k8', '2022-06-03 11:23:10', 0),
+(32, 'abc@gmail.com', '$2y$10$DRi0UCFQdnsyl', '2022-06-03 12:04:55', 0),
+(33, 'am@gmail.com', '$2y$10$Zj6Sliz359/Ub', '2022-06-03 12:32:20', 0),
+(34, 'hello@world.in', '123', '2022-06-03 12:41:36', 0),
+(35, 'good@morning.in', 'jj', '2022-06-04 07:49:09', 0),
+(38, 'neeraj@mail.in', '111', '2022-06-06 12:25:38', 0),
+(40, 'good@night.in', '111', '2022-06-06 22:58:37', 0),
+(41, 'rahul@com.com', '1234', '2022-06-06 23:18:49', 0),
+(42, 'hello@mail.in', '111', '2022-06-11 22:57:18', 0),
+(43, 'demo@abc.in', '111', '2022-06-12 15:16:48', 0),
+(44, 'abc1234@gmail.com', '1234', '2022-06-18 10:53:01', 0),
+(45, 'neeraj@abc.in', '111', '2022-06-19 10:16:28', 0),
+(46, 'JAIRAMCM@GMAIL.COM', 'JAIRAM123', '2022-06-20 10:17:32', 0),
+(47, 'neeraj', '111', '2022-06-20 10:34:11', 0),
+(99, 'NIL', 'NIL', '2023-03-19 08:29:39', 1);
 
 --
 -- Indexes for dumped tables
@@ -192,7 +194,7 @@ ALTER TABLE `threads`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `srn` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `srn` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
