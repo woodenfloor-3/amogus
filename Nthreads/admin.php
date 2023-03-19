@@ -1,4 +1,17 @@
+<?php
+include "partials/_connect.php"; // Using database connection file here
 
+// Check if the user is logged in and is an admin
+session_start();
+if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true || !isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
+    header("Location: adminloginpage.php");
+    exit;
+}
+
+$username = $_SESSION['username'];
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +22,10 @@
   
 </head>
 <body>
-
+<div class="text-right">
+  <span class="mr-3">Logged in as <?php echo $username; ?></span>
+  <a href="admin_logout.php" class="btn btn-danger">Logout</a>
+</div>
   <div class="container">
     <h2>Thread Details</h2>
     <table class="table">
