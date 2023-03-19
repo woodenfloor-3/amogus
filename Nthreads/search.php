@@ -25,7 +25,7 @@
     $noResults = true;
     $query = $_GET['search'];
     $category_id = isset($_GET['category_id']) ? $_GET['category_id'] : '';
-    $where_clause = '';
+    $where_clause = 'WHERE 1=1';
 
     // If a category ID is selected, add a WHERE clause to the query
     if (!empty($category_id)) {
