@@ -21,19 +21,28 @@
     <div class="searchResult container my-3">
         <h1 class="py-2">Search Result for <em> " <?php echo $_GET["search"]; ?> " </em> </h1>
 
-        <?php
-    $noResults = true;
-    $query = $_GET['search'];
-    $category_id = isset($_GET['category_id']) ? $_GET['category_id'] : '';
-    $where_clause = 'WHERE 1=1';
+      <?php
+$noResults = true;
+$query = $_GET['search'];
+$category_id = isset($_GET['category_id']) ? $_GET['category_id'] : '';
+$where_clause = '';
 
-    // If a category ID is selected, add a WHERE clause to the query
-    if (!empty($category_id)) {
-      $where_clause = "WHERE thread_cat_id = $category_id AND";
-    }
+// If a category ID is selected, add a WHERE clause to the query
+if (!empty($category_id)) {
+  $where_clause = "WHERE thread_cat_id = $category_id AND";
+}
 
-    $sql = "SELECT * FROM `threads` $where_clause MATCH (thread_title, thread_desc) AGAINST ('$query')";
-    $result = mysqli_query($conn, $sql);
+// Use the default query for all categories
+if (empty($where_clause)) {
+  $sql = "SELECT * FROM `threads` WHERE MATCH (thread_title, thread_desc) AGAINST ('$query')";
+} else {
+  $sql = "SELECT * FROM `threads` $where_clause MATCH (thread_title, thread_desc) AGAINST ('$query')";
+}
+
+$result = mysqli_query($conn, $sql);
+
+
+
 
     while($row = mysqli_fetch_assoc($result)){
         $title = $row['thread_title'];
