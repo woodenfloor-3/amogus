@@ -56,17 +56,33 @@ input[type="submit"]:hover {
   background-color: #555;
 }
 
+button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #555;
+}
     </style>
-	<title>Login</title>
+    <title>Login</title>
 </head>
 <body>
-	<h1>Login</h1>
-	<form method="post" action="admin_login.php">
-		<label for="username">Username:</label>
-		<input type="text" id="username" name="username"><br><br>
-		<label for="password">Password:</label>
-		<input type="password" id="password" name="password"><br><br>
-		<input type="submit" value="Login">
-	</form>
+    <h1>Admin Login</h1>
+    <form method="post" action="admin_login.php">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Login">
+    </form>
+    <button onclick="location.href='index.php'">Back to Home</button>
 </body>
 </html>

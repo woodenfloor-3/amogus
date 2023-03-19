@@ -66,7 +66,7 @@ $username = $_SESSION['username'];
 
     <div class="my-3">
       <button class="btn btn-success mr-2" onclick="location.href='add_category.php'">Add Category</button>
-      <button class="btn btn-danger mr-2" onclick="location.href='delete_category.php'">Delete Category</button>
+     
       <button class="btn btn-success mr-2" onclick="location.href='admin.php'">Back</button>
     </div>
   </div>
