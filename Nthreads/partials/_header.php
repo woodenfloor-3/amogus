@@ -149,7 +149,7 @@ else{
   <div class="mx-2">
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
   <button class="btn btn-primary" data-toggle="modal" data-target="#signupModal">SignUp</button>
-  <a href="adminloginpage.php" class="btn btn-primary mx-2">Admin Login</a>
+  <a href="admin.php" class="btn btn-primary mx-2">Admin Login</a>
   </div>';
 }
 

@@ -25,6 +25,10 @@
 
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="admin.php" class="btn btn-secondary">Back to Admin</a>
+                        <a href="index.php" class="btn btn-success">Back to Forum</a>
+
+
                     </form>
                 </div>
             </div>
@@ -43,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $category_name = $_POST['category_name'];
             $category_description = $_POST['category_description'];
             $image_path = $target_file;
-            $sql = "INSERT INTO `categories` (`category_name`, `category_description`, `image_path`) VALUES ('$category_name', '$category_description', '$image_path')";
+            $sql = "INSERT INTO `categories` (`category_name`, `category_description`, `image_path`,`created`) VALUES ('$category_name', '$category_description', '$image_path',current_timestamp())";
             $result = mysqli_query($conn, $sql);
             if ($result) {
                 echo 'Category added successfully';
