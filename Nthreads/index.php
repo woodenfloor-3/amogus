@@ -115,9 +115,10 @@
         $id = $row['category_id'];
         $cat = $row['category_name'];
         $desc = $row['category_description'];
+        $imgp = $row['image_path'];
         echo '<div class="col-md-4 my-2">
                 <div class="card card-category" style="width: 18rem;">
-                  <img src="images/card-' . $id . '.png" width="200px" height="200px" class="card-img-top" alt="' . $cat . '">
+                  <img src="' . $imgp . '" width="200px" height="200px" class="card-img-top" alt="' . $cat . '">
                   <div class="card-body">
                     <h5 class="card-title"><a href="threadlist.php?catid=' . $id . '">' . $cat . '</a></h5>
                     <p class="card-text">' . substr($desc, 0, 150) . '...</p>
