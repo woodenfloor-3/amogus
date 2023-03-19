@@ -112,7 +112,7 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">';
 
-        $sql = "SELECT category_name, category_id FROM categories LIMIT 4";
+        $sql = "SELECT category_name, category_id FROM categories LIMIT 10";
         $result = mysqli_query($conn, $sql);
         while($row = mysqli_fetch_assoc($result)){
           echo '<a class="dropdown-item" href="threadlist.php?catid='.$row["category_id"].'">' . $row["category_name"] . '</a>';
@@ -128,7 +128,7 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <select name="category_id">
     <option value="">All Categories</option>';
     // Retrieve the list of categories from the database
-    $sql = "SELECT category_name, category_id FROM categories LIMIT 4";
+    $sql = "SELECT category_name, category_id FROM categories LIMIT 10";
     
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($result)) {

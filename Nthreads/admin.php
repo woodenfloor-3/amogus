@@ -37,7 +37,6 @@ $username = $_SESSION['username'];
           <th>Category ID</th>
           <th>User ID</th>
           <th>Timestamp</th>
-          <th>Edit</th>
           <th>Delete</th>
         </tr>
       </thead>
@@ -58,9 +57,6 @@ $username = $_SESSION['username'];
             <td><?php echo $data['thread_user_id']; ?></td>   
             <td><?php echo $data['timestamp']; ?></td>
             <td>
-              <button class="btn btn-primary" onclick="location.href='edit_thread.php?id=<?php echo $data['thread_id'];?>'">Edit</button>
-            </td>
-            <td>
               <button class="btn btn-danger" onclick="location.href='delete_thread.php?id=<?php echo $data['thread_id'];?>'">Delete</button>
             </td>
           </tr>
@@ -72,9 +68,8 @@ $username = $_SESSION['username'];
     </table>
 
     <div class="my-3">
-      <button class="btn btn-primary mr-2" onclick="location.href='add_thread.php'">Add Thread</button>
       <button class="btn btn-success mr-2" onclick="location.href='add_category.php'">Add Category</button>
-      <button class="btn btn-danger mr-2" onclick="location.href='add_user.php'">Add User</button>
+      <button class="btn btn-primary mr-2" onclick="location.href='add_user.php'">Add User</button>
     </div>
   </div>
 
