@@ -4,10 +4,10 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+     
     <title>NeatThreads - Forum</title>
   </head>
   <body>
@@ -67,14 +67,47 @@
 
     <div class="container my-3">
       <div class="jumbotron bg-dark">
+        
         <h1 class="display-4 text-white"><?php echo $title; ?></h1>
-        <p class="lead text-white"><?php echo $desc; ?></p>
+        <p id="desc" class="lead text-white"><?php echo $desc; ?></p>
+        <button class="btn-copy" onclick="copyToClipboard()">Copy</button>
+        <div id="notification"></div>
         <hr class="my-4">
-
+        
+        
         <p style="color:white;"><em> Posted by <?php echo $posted_by; ?> </em></p>
+        
       </div>
     </div>
+    <script>
+function copyToClipboard() {
+  var desc = document.getElementById("desc");
+  var range = document.createRange();
+  range.selectNode(desc);
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+  document.execCommand("copy");
+  window.getSelection().removeAllRanges();
+    // Display alert message after copying
+    alert("Content copied to clipboard!");
+}
 
+</script>
+<style>
+.btn-copy {
+  border: none;
+  background: #f8f9fa;
+  color: #212529;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.btn-copy:hover {
+  background: #e9ecef;
+}
+</style>
 
 
     <!-- Comment Box -->
