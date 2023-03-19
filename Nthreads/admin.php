@@ -69,9 +69,9 @@ $username = $_SESSION['username'];
 
     <div class="my-3">
       <button class="btn btn-success mr-2" onclick="location.href='add_category.php'">Add Category</button>
-      <button class="btn btn-danger mr-2" onclick="location.href='delete_category.php'">Delete Category</button>
+      <button class="btn btn-danger mr-2" onclick="location.href='category.php'">View Category</button>
       <button class="btn btn-primary mr-2" onclick="location.href='add_user.php'">Add User</button>
-      <button class="btn btn-danger" onclick="location.href='delete_user.php'">Delete User</button>
+      <button class="btn btn-danger" onclick="location.href='manage_user.php'">View User</button>
 
     </div>
   </div>

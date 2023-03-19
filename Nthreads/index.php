@@ -24,8 +24,11 @@
   transition: box-shadow 0.3s ease-in-out;
 }
 .carousel-item img {
-        height: 400px;
+  max-width: 800px;
+  max-height: 400px;
         object-fit: cover;
+        display: block;
+  margin: 0 auto;
       }
 
 .card:hover {
@@ -67,6 +70,12 @@
       .card-category .btn:hover {
         background-color: #5c5b5b;
       }
+      .carousel-container {
+  width: 800px;
+  height: 400px;
+}
+
+
   </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -79,17 +88,28 @@
     <!-- Start Slider -->
 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://merriam-webster.com/assets/mw/images/article/art-wap-article-main/line%20drawings%20of%20among%20us%20avatars-8960-0809a5c86f7bb8d9d26b286efdf85d54@1x.jpg" height=900 width=300 class="d-block w-100" class="d-block w-100" alt="...">
+      <div class="carousel-inner">
+        <?php
+          $sql = "SELECT * FROM `images`";
+          $result = mysqli_query($conn, $sql);
+          $i = 0;
+          while($row = mysqli_fetch_assoc($result)){
+            $imgp = $row['image_path'];
+            echo '<div class="carousel-item';
+            if($i == 0) {
+              echo ' active';
+            }
+            echo '">
+                    <img src="' . $imgp . '" class="d-block w-100" alt="...">
+                  </div>';
+            $i++;
+          }
+        ?>
+      </div>
+      <div class="carousel-item">
+                <img src="<?php echo $imgp ?>" class="d-block w-100" alt="...">
             </div>
-            <div class="carousel-item">
-                <img src="https://wallpaperaccess.com/full/4707938.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="https://i.pinimg.com/736x/e2/63/12/e26312c1d18e326cbea101ad62c03a0f.jpg" class="d-block w-100" alt="...">
-            </div>
-        </div>
+           
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>

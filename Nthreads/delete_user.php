@@ -10,7 +10,7 @@ if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true || !
 
 if(isset($_GET['id'])){
     $id=$_GET['id'];
-    $sql=mysqli_query($conn,"DELETE FROM users WHERE user_id='$id'");
-    header('location:admin.php');
+    $sql=mysqli_query($conn,"DELETE FROM users WHERE srn='$id'");
+    header('location:manage_user.php');
 }
 ?>

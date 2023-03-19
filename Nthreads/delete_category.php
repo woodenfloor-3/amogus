@@ -8,9 +8,10 @@ if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true || !
     exit;
 }
 
+
 if(isset($_GET['id'])){
     $id=$_GET['id'];
     $sql=mysqli_query($conn,"DELETE FROM categories WHERE category_id='$id'");
-    header('location:admin.php');
+    header('location:category.php');
 }
 ?>

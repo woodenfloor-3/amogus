@@ -130,13 +130,13 @@
           $thread_time = $row['timestamp'];
           $noResult = false;
           $thread_user_id = $row['thread_user_id'];
-          $sql2 = "SELECT user_email FROM users WHERE srn = $thread_user_id";
+          $sql2 ="SELECT user_email, user_image FROM users WHERE srn = $thread_user_id";
           $result2 = mysqli_query($conn, $sql2);
           $row2 = mysqli_fetch_assoc($result2);
           // var_dump($row2['user_email']);
       
         echo '<div class="media">
-            <img src="images/userdefault.png" width="54px" class="mr-3" alt="...">
+            <img src="' . $row2['user_image'] . '" width="54px" class="mr-3" alt="...">
             <div class="media-body">
               <h5 class="mt-0"><a href="threads.php?threadid=' . $id .'">' . $title . '</a></h5>
               ' . $desc . '

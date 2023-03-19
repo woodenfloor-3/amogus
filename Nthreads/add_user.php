@@ -1,76 +1,71 @@
-<?php
-  $showAlert = false;
-  $showError = false;
-  if($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_POST['addThread']) && !isset($_POST['addComment'])){
-    include 'partials/_connect.php';
-
-    $useremail = $_POST['signupUsername'];
-    $password = $_POST['signupPassword'];
-    $cpassword = $_POST['signupcPassword'];
-
-    $existSql = "SELECT * FROM users WHERE user_email = '$useremail'";
-    $result = mysqli_query($conn, $existSql);
-    $numExistRows = mysqli_num_rows($result);
-
-    if($numExistRows > 0){
-      header("location: index.php?userexist=true");
-    }
-    else{
-      if($password == $cpassword){
-        $hash = $password;
-
-        $sql= "INSERT INTO users (user_email, user_password, timestamp) VALUES ('$useremail', '$hash', current_timestamp())";
-        $result = mysqli_query($conn, $sql);
-        if($result){
-          $showAlert = true;
-          header("location: index.php?signupsuccess=true");
-          exit();
-        }
-        else{
-          header("location: index.php?signupsuccess=false");
-        }
-      }
-      else{
-        header("location: index.php?passnotmatch=true");
-      }
-    }
-}
-?>
-<!DOCTYPE html>
 <html>
-<head>
-  <title>Add User</title>
-  <!-- Include Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <style>
-    .container {
-      margin-top: 50px;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h2>Add User</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-      <div class="form-group">
-        <label for="signupUsername">Username:</label>
-        <input type="text" class="form-control" id="signupUsername" placeholder="Enter username" name="signupUsername" required>
-      </div>
-      <div class="form-group">
-        <label for="signupPassword">Password:</label>
-        <input type="password" class="form-control" id="signupPassword" placeholder="Enter password" name="signupPassword" required>
-      </div>
-      <div class="form-group">
-        <label for="signupcPassword">Confirm Password:</label>
-        <input type="password" class="form-control" id="signupcPassword" placeholder="Enter password again" name="signupcPassword" required>
-      </div>
-      <button type="submit" class="btn btn-primary" name="addUser">Submit</button>
-    </form>
-  </div>
+    <title>Add User</title>
+    <head>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <h2 class="mb-4">Add User</h2>
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="user_email">Username:</label>
+                            <input type="text" class="form-control" id="user_email" name="user_email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user_password">Password:</label>
+                            <input type="password" class="form-control" id="user_password" name="user_password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user_image">User Image:</label>
+                            <input type="file" class="form-control-file" id="user_image" name="user_image" accept="image/*">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="admin.php" class="btn btn-secondary">Back to Admin</a>
+                        <a href="index.php" class="btn btn-success">Back to Forum</a>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-  	<!-- Include Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-</html>
+        <?php
+    include "partials/_connect.php"; // Using database connection file here
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Handle file upload
+        if (isset($_FILES['user_image']) && $_FILES['user_image']['error'] == UPLOAD_ERR_OK) {
+            $target_dir = 'userimgs/';
+            $target_file = $target_dir . basename($_FILES['user_image']['name']);
+            $upload_success = move_uploaded_file($_FILES['user_image']['tmp_name'], $target_file);
+
+            if ($upload_success) {
+                // Insert path to uploaded file into database
+                $user_email = $_POST['user_email'];
+                $user_password = $_POST['user_password'];
+                $user_image = $target_file;
+
+                $sql = "INSERT INTO `users` (`user_email`, `user_password`, `user_image`, `timestamp`) VALUES ('$user_email', '$user_password', '$user_image', current_timestamp())";
+                $result = mysqli_query($conn, $sql);
+
+                if ($result) {
+                    echo '<div class="alert alert-success mt-3">User added successfully</div>';
+                } else {
+                    echo '<div class="alert alert-danger mt-3">Error adding user: ' . mysqli_error($conn) . '</div>';
+                }
+            } else {
+                echo '<div class="alert alert-danger mt-3">Error uploading image</div>';
+            }
+        } else {
+            echo '<div class="alert alert-danger mt-3">Image not uploaded</div>';
+        }
+    }
+?>
+
+<!-- Link to Bootstrap JS file -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+integrity="sha384-9fXnGLjt1lq/QcG8rJMNHzLmF+kYh3qKV+jHYmP4zU5hxhJ6deye0liV5eSxJh1V"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
