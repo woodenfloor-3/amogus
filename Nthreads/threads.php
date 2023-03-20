@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -157,7 +156,7 @@ function copyToClipboard() {
           $row2 = mysqli_fetch_assoc($result2);
       
         echo '<div class="media">
-            <img src="images/userdefault.png" width="54px" class="mr-3" alt="...">
+        <img src="' . $row2['user_image'] . '" width="54px" class="mr-3" alt="...">
             <div class="media-body">
             <p class="font-weight-bold my-0">' . $row2['user_email'] . ' at ' . $comment_time . '</p>
             ' . $content . '</div>
