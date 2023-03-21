@@ -20,11 +20,13 @@
     include "partials/_connect.php";
     include "partials/_header.php";
     $id = $_SERVER['REQUEST_METHOD'] == 'GET' ? $_GET['catid'] : $_POST['catid'];
-    $sql = "SELECT * FROM `categories` WHERE `category_id` = $id";
+    $sql = "SELECT *, `image_path` FROM `categories` WHERE `category_id` = $id";
+
     $result = mysqli_query($conn, $sql);
       while($row = mysqli_fetch_assoc($result)){
         $catname = $row['category_name'];
         $catdesc = $row['category_description'];
+        $image_path = $row['image_path'];
       }
     ?>
 
@@ -71,7 +73,10 @@
         <h1 class="display-5 text-white">Welcome to <?php echo $catname; ?> Forum</h1>
         <p class="lead text-white"><?php echo $catdesc; ?></p>
         <hr class="my-4">
-        <p style="color:white;">This is peer to peer discussion forum to share knowledge with each other. Forum Rules : 
+        <img src="<?php echo $image_path ?>" alt="Category Image" class="img-fluid">
+        <br>
+        <br>
+        <p style="color:white;">This is peer to peer discussion forum to share knowledge with each other. <br>Forum Rules : 
           <br>1. No Spam / Advertising / Self-promote in the forums. <br>2. Do not post copyright-infringing material.<br>3. Do not cross post questions. <br>4. Do not PM users asking for help. <br>5. Remain respectful of other members at all times.
         </p>
        

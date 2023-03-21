@@ -44,8 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $upload_success = move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
         if ($upload_success) {
             // Insert path to uploaded file into database
-            $category_name = $_POST['category_name'];
-            $category_description = $_POST['category_description'];
+            $category_name = mysqli_real_escape_string($conn,$_POST['category_name']);
+            $category_description = mysqli_real_escape_string($conn,$_POST['category_description']);
             $image_path = $target_file;
             $sql = "INSERT INTO `categories` (`category_name`, `category_description`, `image_path`,`created`) VALUES ('$category_name', '$category_description', '$image_path',current_timestamp())";
             $result = mysqli_query($conn, $sql);

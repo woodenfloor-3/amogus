@@ -54,7 +54,7 @@
   width: 200px;
   height: 200px;
   object-fit: cover;
-  border-radius: 50%;
+ 
 }
 .card-category .btn {
         background-color: #000000;
